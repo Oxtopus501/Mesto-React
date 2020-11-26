@@ -4,6 +4,7 @@ import close from '../images/close.svg';
 import PopupWtihForm from './PopupWithForm.js'; //Компонент любого попапа, все внутреннее наполнение передаётся через children
 import ImagePopup from './ImagePopup.js'; //Компонент попапа с картинкой
 import api from '../utils/Api.js'; //В Api.js создаём экземпляр *const api = new Api()* и передаём его сюда
+import Card from './Card.js';
 
 function Main(props) {
     //Хуки обновляют имя пользователя и описание
@@ -34,20 +35,10 @@ function Main(props) {
     React.useEffect(() => {
       ReactDOM.render((
         <>
-          {cards.map((card, i) => {
+          {cards.map((card) => {
             return(
-          <div className='place-card' key={i}>
-            <div className='place-card__image' style={{backgroundImage: `url(${card.link})`}}>
-              <button className='place-card__delete-icon' />
-            </div>
-            <div className='place-card__description'>
-              <h3 className='place-card__name'>{card.name}</h3>
-              <div className='place-card__like-container'>
-                <button className='place-card__like-icon' />
-                <p className='place-card__like-counter'>{card.likes.length}</p>
-              </div>
-            </div>
-          </div>)
+              <Card card={card} onCardClick={props.onCardClick}/>
+          )
         })}
         
         </>
@@ -90,7 +81,7 @@ function Main(props) {
         <button className="button popup__button popup__button_active" id='save-profile'>Сохранить</button>
        </PopupWtihForm>         
 
-      <ImagePopup/>
+      <ImagePopup onClose={props.onClose} selectedCard={props.card}/>
        
       </>  
     )   
