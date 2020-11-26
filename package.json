@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build --branch master"
+    "deploy": "gh-pages -d dist"
   },
   "homepage": "https://github.com/Oxtopus501/mesto-react",
   "eslintConfig": {
