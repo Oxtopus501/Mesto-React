@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://github.com/Oxtopus501/mesto-react",
+  "homepage": "https://oxtopus501.github.io/mesto-react",
   "eslintConfig": {
     "extends": [
       "react-app",
